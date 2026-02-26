@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원 가입</title>
+</head>
+<body>
+
+<div th:if="${errorMessage}" style="color: red; border: 1px solid red; padding: 10px; margin-bottom: 20px;">
+    ⚠️ 에러 발생: <span th:text="${errorMessage}">에러 메시지 내용</span>
+</div>
+<h2> 새 멤버 가입</h2>
+<form action="/join" method="post">
+    <label>이름: </label>
+    <input type="text" name="name" placeholder="이름을 입력하세요" required>
+    <button type="submit">계좌 개설 (기본 10만 원 지급)</button>
+</form>
+<br>
+<a href="/">홈으로</a>
+</body>
+</html>

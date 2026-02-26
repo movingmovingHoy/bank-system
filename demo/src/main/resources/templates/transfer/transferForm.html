@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>송금하기</title>
+</head>
+<body>
+<div th:if="${errorMessage}" style="color: red; border: 1px solid red; padding: 10px; margin-bottom: 20px;">
+    ⚠️ 에러 발생: <span th:text="${errorMessage}">에러 메시지 내용</span>
+</div>
+
+<form action="/transfer" method="post">
+</form>
+<h1>💸 안전 송금 서비스</h1>
+<form action="/transfer" method="post">
+    <fieldset>
+        <legend>보내는 분 (본인 확인)</legend>
+        <label>이름: </label>
+        <input type="text" name="fromName" placeholder="본인 성함을 입력하세요" required>
+    </fieldset>
+
+    <br>
+
+    <fieldset>
+        <legend>받는 분 (상대방 정보)</legend>
+        <label>이름: </label>
+        <input type="text" name="toName" placeholder="받는 분 성함" required>
+        <br><br>
+        <label>계좌번호: </label>
+        <input type="text" name="toAccount" placeholder="UUID 계좌번호 입력" required>
+    </fieldset>
+
+    <br>
+
+    <fieldset>
+        <legend>송금 설정</legend>
+        <label>송금 금액: </label>
+        <input type="number" name="amount" min="1" placeholder="금액 입력" required> 원
+    </fieldset>
+
+    <br>
+    <button type="submit" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; cursor: pointer;">
+        지금 송금하기
+    </button>
+</form>
+
+<br>
+<a href="/">홈으로 돌아가기</a>
+</body>
+</html>
